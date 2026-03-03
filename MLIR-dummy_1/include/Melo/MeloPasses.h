@@ -22,6 +22,14 @@
 
 #include "mlir/Pass/Pass.h"
 
-namespace melo {} // namespace melo
+namespace melo {
+
+/// Create a pass that lowers Melo operations to the TOSA dialect.
+std::unique_ptr<mlir::Pass> createLowerToTosaPass();
+
+/// Register all Melo passes.
+void registerMeloPasses();
+
+} // namespace melo
 
 #endif // MLIR_MELO_PASSES_H

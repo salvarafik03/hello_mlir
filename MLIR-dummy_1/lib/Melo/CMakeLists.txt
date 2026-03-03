@@ -1,6 +1,7 @@
 add_mlir_dialect_library(MLIRMelo
 		MeloDialect.cpp
 		MeloOps.cpp
+        LowerToTosa.cpp
 
         ADDITIONAL_HEADER_DIRS
         ${PROJECT_SOURCE_DIR}/include/Melo
@@ -10,4 +11,8 @@ add_mlir_dialect_library(MLIRMelo
 
 	LINK_LIBS PUBLIC
 	MLIRIR
+    MLIRFuncDialect
+    MLIRArithDialect
+    MLIRTosaDialect
+    MLIRTransforms
 	)
