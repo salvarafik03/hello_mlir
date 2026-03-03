@@ -30,6 +30,6 @@ std::unique_ptr<mlir::Pass> createLowerToTosaPass();
 /// Register all Melo passes.
 void registerMeloPasses();
 
-} // namespace melo
+}
 
 #endif // MLIR_MELO_PASSES_H
