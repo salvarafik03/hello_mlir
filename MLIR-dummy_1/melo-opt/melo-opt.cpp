@@ -9,6 +9,8 @@
 
 #include "mlir/Dialect/Tosa/IR/TosaOps.h"
 #include "mlir/Dialect/Func/IR/FuncOps.h"
+#include "mlir/Dialect/Arith/IR/Arith.h"
+#include "mlir/Dialect/SCF/IR/SCF.h"
 
 #include "Melo/MeloDialect.h"
 #include "Melo/MeloPasses.h"
@@ -71,6 +73,8 @@ int main(int argc, char **argv) {
   // Register dialects
   context.getOrLoadDialect<melo::MeloDialect>();
   context.getOrLoadDialect<mlir::func::FuncDialect>();
+  context.getOrLoadDialect<mlir::arith::ArithDialect>();
+  context.getOrLoadDialect<mlir::scf::SCFDialect>();
   context.getOrLoadDialect<mlir::tosa::TosaDialect>();
   // Register passes
   melo::registerMeloPasses();

@@ -54,4 +54,20 @@ def Melo_AddOp : Melo_Op<"add", [Pure]> {
   let assemblyFormat = "$lhs `,` $rhs attr-dict `:` type($lhs) `,` type($rhs) `->` type($output)";
 }
 
+// ---------------------------------------------
+// Softmax operation
+// ---------------------------------------------
+
+def Melo_SoftmaxOp : Melo_Op<"softmax", [Pure]> {
+  let summary = "Softmax operation";
+  let description = [{
+    Computes softmax over a tensor dimension (torch.nn.Softmax(dim)).
+  }];
+
+  let arguments = (ins AnyType:$input, I64Attr:$dim);
+  let results   = (outs AnyType:$output);
+
+  let assemblyFormat = "$input `dim` `=` $dim attr-dict `:` type($input) `->` type($output)";
+}
+
 #endif // MELO_OPS
